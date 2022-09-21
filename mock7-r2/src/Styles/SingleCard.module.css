@@ -1,0 +1,38 @@
+.scard{
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    gap: 2px;
+
+}
+.scard:hover{
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+.flagdiv{
+    flex: 5;
+    display: block;
+}
+.flagdiv img{
+    height: 100%;
+    width: 100%;
+}
+
+.infodiv{
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 900;
+    padding-left: 1.5%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+}
+.infodiv span:hover{
+    color: rgb(143, 138, 138);
+    font-weight: 200;
+}
+.infodiv:hover{
+    color: maroon;
+    box-shadow: none;
+}
