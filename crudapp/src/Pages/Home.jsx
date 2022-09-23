@@ -98,7 +98,11 @@ export const Home = () => {
                        color='primary'
                        onClick={()=>handleDelete(user.id)}
                       >DELETE</Button>
-                      <Button color='secondary'>EDIT</Button>
+                      <Button 
+                      color='secondary' 
+                      onClick={()=>navigate(`/edituser/${user.id}`)}
+                      >EDIT
+                      </Button>
                       
                     </ButtonGroup>
                   </StyledTableCell>

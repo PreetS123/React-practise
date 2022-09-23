@@ -51,3 +51,37 @@
         .catch(er=>console.log(er))
        }
    }
+
+   const userSingle=(user)=>({
+    type:types.GET_SINGLE_USER,
+    payload:user,
+   })
+   
+   export const getSingleUser=(id)=>{
+       return function (dispatch){
+        axios.get(`http://localhost:8080/user/${id}`)
+        .then(res=>{
+            console.log(res.data);
+            dispatch(userSingle(res.data))
+            // dispatch(loadUsers())
+        })
+        .catch(er=>console.log(er))
+       }
+   }
+
+
+   const userUpdate=()=>({
+    type:types.UPDATE_USER,
+   })
+
+   export const updateUser=(user,id)=>{
+    return function (dispatch){
+     axios.put(`http://localhost:8080/user/${id}`,user)
+     .then(res=>{
+         console.log(res.data);
+         dispatch(userUpdate())
+         dispatch(loadUsers())
+     })
+     .catch(er=>console.log(er))
+    }
+}

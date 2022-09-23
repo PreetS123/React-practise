@@ -28,6 +28,20 @@ import * as types from './actionTypes';
                 isloading:false,
             }
         }
+        case types.GET_SINGLE_USER:{
+          return {
+              ...state,
+              user:payload,
+              isloading:false,
+          }
+      }
+      case types.UPDATE_USER:{
+        return {
+            ...state,
+            users:payload,
+            isloading:false,
+        }
+    }
 
         default:
             return state;
