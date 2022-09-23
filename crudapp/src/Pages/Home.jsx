@@ -11,6 +11,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { deleteUser, loadUsers } from "../Redux/action";
 import { Button, ButtonGroup } from "@mui/material";
+import { useNavigate} from 'react-router-dom';
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -35,6 +37,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 export const Home = () => {
   const { users } = useSelector((state) => state.users);
   let dispatch = useDispatch();
+  const navigate= useNavigate();
    
     const handleDelete=(id)=>{
         if(window.confirm("Are you sure to delete it")){
@@ -48,6 +51,15 @@ export const Home = () => {
 
   return (
     <>
+    <div style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'2%'}}>
+     <Button 
+     varient='contained' 
+     color='secondary' 
+     onClick={()=>navigate('/addUser')}
+     >
+        Add User
+        </Button>
+     </div>
       <TableContainer component={Paper}>
         <Table
           sx={{ minWidth: 700, margin: "100px auto" }}
