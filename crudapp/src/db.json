@@ -1,0 +1,25 @@
+{
+  "user": [
+    {
+      "name": "Tomy",
+      "address": "Europe",
+      "email": "tomy@gmail.com",
+      "contact": 687506464,
+      "id": 2
+    },
+    {
+      "name": "Candle",
+      "address": "Africa",
+      "email": "candle@gmail.com",
+      "contact": 687564464,
+      "id": 3
+    },
+    {
+      "name": "Camila",
+      "address": "Italy",
+      "email": "camila@gmail.com",
+      "contact": 687256464,
+      "id": 4
+    }
+  ]
+}
