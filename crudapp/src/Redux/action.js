@@ -34,3 +34,20 @@
         .catch(er=>console.log(er))
        }
    }
+
+   const userAdded=(user)=>({
+    type:types.ADD_USER,
+    payload:user,
+   })
+   
+   export const addUser=(user)=>{
+       return function (dispatch){
+        axios.post(`http://localhost:8080/user`,user)
+        .then(res=>{
+            console.log(res);
+            dispatch(userAdded())
+            dispatch(loadUsers())
+        })
+        .catch(er=>console.log(er))
+       }
+   }

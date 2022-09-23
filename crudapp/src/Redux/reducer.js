@@ -15,6 +15,13 @@ import * as types from './actionTypes';
                 isloading:false,
             }
         }
+        case types.ADD_USER:{
+          return {
+              ...state,
+              users:payload,
+              isloading:false,
+          }
+      }
         case types.DELETE_USER:{
             return {
                 ...state,
