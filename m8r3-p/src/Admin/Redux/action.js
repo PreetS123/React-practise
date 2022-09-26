@@ -24,10 +24,12 @@
 
 
    export const AddingHotelRoom=(payload)=>(dispatch)=>{
+    // console.log(payload)
            axios.post(`https://mock8-r3.herokuapp.com/admin`,payload)
            .then(res=>{
-            console.log('addhotelroom',res.data)
+            console.log('addhotelroom',res)
             dispatch(addHotelRoom())
+            dispatch(loadHotelRoom())
            })
            .catch(er=>console.log(er))
    }

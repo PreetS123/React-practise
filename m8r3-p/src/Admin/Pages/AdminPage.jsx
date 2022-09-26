@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
 import { loadHotelRoom } from "../Redux/action";
+import { nanoid } from "nanoid";
 
 export const AdminPage = () => {
   const { hotels } = useSelector((state) => state.admin);
@@ -23,7 +24,7 @@ export const AdminPage = () => {
 
   useEffect(() => {
     dispatch(loadHotelRoom());
-  }, []);
+  }, [dispatch]);
   console.log(hotels);
 
   return (
@@ -59,7 +60,7 @@ export const AdminPage = () => {
           <Tbody>
             {hotels &&
               hotels?.map((el) => (
-                <Tr>
+                <Tr key={nanoid()}> 
                   <Td>{el.category}</Td>
                   <Td>{el.image_url}</Td>
                   <Td>{el.type_of_room}</Td>
@@ -83,13 +84,3 @@ export const AdminPage = () => {
   );
 };
 
-// {
-//     "category": "Family",
-//     "image_url": "https://tse1.mm.bing.net/th?id=OIP.64vruKVtxRHxLXYAMRYtZAHaKM&pid=Api&P=0",
-//     "type_of_room": "AC",
-//     "bed_type": "Single",
-//     "no_of_persons": 4,
-//     "capacity": "Max Capacity",
-//     "cost": 4000,
-//     "booked": false
-//   }
