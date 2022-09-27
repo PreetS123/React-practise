@@ -33,3 +33,18 @@
            })
            .catch(er=>console.log('addinghotelroom',er))
    }
+
+
+   const deleteRoom=()=>({
+       type:types.DELETE_ROOM_DATA,
+   })
+
+   export const deletingHotelRoom=(id)=>dispatch=>{
+       axios.delete(`https://mock8-r3.herokuapp.com/admin/${id}`)
+       .then(r=>{
+              console.log('dltresponce',r)
+              dispatch(deleteRoom())
+              dispatch(loadHotelRoom())
+       })
+       .catch(er=>console.log('er in deleting',er))
+   }

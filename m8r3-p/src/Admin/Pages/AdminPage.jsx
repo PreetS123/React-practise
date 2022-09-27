@@ -14,13 +14,20 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
-import { loadHotelRoom } from "../Redux/action";
+import { deletingHotelRoom, loadHotelRoom } from "../Redux/action";
 import { nanoid } from "nanoid";
 
 export const AdminPage = () => {
   const { hotels } = useSelector((state) => state.admin);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+
+  const handleDelete=(id)=>{
+    if(window.confirm('Are you sure to delete it')){
+      dispatch(deletingHotelRoom(id))
+    }
+  }
 
   useEffect(() => {
     dispatch(loadHotelRoom());
@@ -72,7 +79,7 @@ export const AdminPage = () => {
                   <Td>
                     <ButtonGroup gap="1">
                       <Button colorScheme="purple">Edit</Button>
-                      <Button colorScheme="purple">Delete</Button>
+                      <Button colorScheme="purple" onClick={()=>handleDelete(el.id)}>Delete</Button>
                     </ButtonGroup>
                   </Td>
                 </Tr>

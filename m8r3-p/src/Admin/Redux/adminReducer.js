@@ -23,6 +23,12 @@ const initState={
                 hotels:payload
             }
         }
+        case types.DELETE_ROOM_DATA:{
+            return {
+                ...state,
+                isLoading:false
+            }
+        }
         default:
             return state;
       }
