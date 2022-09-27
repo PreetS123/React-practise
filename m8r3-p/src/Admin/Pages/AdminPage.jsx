@@ -78,7 +78,7 @@ export const AdminPage = () => {
                   <Td>{el.booked}</Td>
                   <Td>
                     <ButtonGroup gap="1">
-                      <Button colorScheme="purple">Edit</Button>
+                      <Button colorScheme="purple" onClick={()=>navigate(`/edit/${el.id}`)}>Edit</Button>
                       <Button colorScheme="purple" onClick={()=>handleDelete(el.id)}>Delete</Button>
                     </ButtonGroup>
                   </Td>

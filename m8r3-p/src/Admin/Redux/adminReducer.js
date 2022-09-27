@@ -29,6 +29,20 @@ const initState={
                 isLoading:false
             }
         }
+        case types.SINGLE_ROOM_DATA:{
+            return {
+                ...state,
+                isLoading:false,
+                hotel:payload
+            }
+        }
+        case types.UPDATE_ROOM_DATA:{
+            return {
+                ...state,
+                isLoading:false,
+                hotels:payload
+            }
+        }
         default:
             return state;
       }

@@ -48,3 +48,35 @@
        })
        .catch(er=>console.log('er in deleting',er))
    }
+
+
+
+   
+ const getSingleRoom=(payload)=>({
+       type:types.SINGLE_ROOM_DATA,
+       payload
+ })
+
+ export const loadSingleRoom=(id)=>(dispatch)=>{
+        axios.get(`https://mock8-r3.herokuapp.com/admin/${id}`)
+        .then(res=>{
+            console.log('single',res.data);
+            dispatch(getSingleRoom(res.data));
+        })
+        .catch(er=>console.log('singlehotelroomdata',er))
+ }
+
+
+ const updateRoom=()=>({
+       type:types.UPDATE_ROOM_DATA,
+ })
+
+   export const updatedHotelRoom=(payload,id)=>dispatch=>{
+        axios.put(`https://mock8-r3.herokuapp.com/admin/${id}`,payload)
+        .then(r=>{
+              console.log('updated',r.data)
+              dispatch(updateRoom())
+              dispatch(loadHotelRoom())
+        })
+        .catch(e=>console.log('errorinupdating',e))
+   }
