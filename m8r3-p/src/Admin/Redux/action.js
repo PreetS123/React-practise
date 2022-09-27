@@ -24,7 +24,7 @@
 
 
    export const AddingHotelRoom=(hotels)=>(dispatch)=>{
-    // console.log(payload)
+    console.log('hotels',hotels)
            axios.post(`https://mock8-r3.herokuapp.com/admin`,hotels)
            .then(res=>{
             console.log('addhotelroom',res)

@@ -61,6 +61,17 @@ export const AdminForm = () => {
           <FormLabel>Image of the room</FormLabel>
           <Input type="text" name='image_url'  id='image_url'  onChange={handleChange} />
         </FormControl>
+        <Select 
+        placeholder="Choose Category"
+        name='bed_type'
+        id='bed_type'
+        onChange={handleChange}
+        >
+          <option value="Single">Single</option>
+          <option value="Double">Double</option>
+          {/* <option value="Duluxe">Dulxe</option> */}
+        </Select>
+
         <Select placeholder="Choose Room Type" id="type_of_room" name='type_of_room'  onChange={handleChange} >
           <option value="AC">AC</option>
           <option value="Non-AC">Non-AC</option>
