@@ -23,13 +23,13 @@
    })
 
 
-   export const AddingHotelRoom=(payload)=>(dispatch)=>{
+   export const AddingHotelRoom=(hotels)=>(dispatch)=>{
     // console.log(payload)
-           axios.post(`https://mock8-r3.herokuapp.com/admin`,payload)
+           axios.post(`https://mock8-r3.herokuapp.com/admin`,hotels)
            .then(res=>{
             console.log('addhotelroom',res)
             dispatch(addHotelRoom())
             dispatch(loadHotelRoom())
            })
-           .catch(er=>console.log(er))
+           .catch(er=>console.log('addinghotelroom',er))
    }

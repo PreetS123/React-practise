@@ -3,9 +3,6 @@ import {
   FormControl,
   FormLabel,
   Input,
-  RadioGroup,
-  HStack,
-  Radio,
   Select,
   Button,
 } from "@chakra-ui/react";
@@ -18,23 +15,24 @@ export const AdminForm = () => {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({});
 
-  const handleForm = (e) => {
+ 
+   const handleChange=(e)=>{
+      const inpname= e.target.name;
+      setFormData({...formData,[inpname]:e.target.value})
+      
+   }
+
+   const handleForm = (e) => {
     e.preventDefault();
     dispatch(AddingHotelRoom(formData));
      
   };
-   const handleChange=(e)=>{
-      const inpname= e.target.name;
-      if(e.target.type==='ckeckbox'){
-        setFormData({...formData,[inpname]:e.target.checked})
-      }
-      else{
-        setFormData({...formData,[inpname]:e.target.value})
-      }
-   }
+
+
   return (
     <>
-     <Button variant={'solid'} m='auto' colorScheme='purple' onClick={()=>navigate('/adminpage')}> Back To Previous Page </Button>
+     <Button variant={'solid'} margin='auto' colorScheme='purple' onClick={()=>navigate('/adminpage')}> Back To Previous Page </Button>
+       {/* Admin hotel form */}
       <form
         onSubmit={handleForm}
         style={{
@@ -50,59 +48,46 @@ export const AdminForm = () => {
         }}
       >
         <Select 
-        placeholder="Select Family Type"
-        onChange={handleChange}
+        placeholder="Choose Category"
         name='category'
+        id='category'
+        onChange={handleChange}
         >
-          <option value="Couple">Couple</option>
+          <option value="Suit">Suit</option>
           <option value="Family">Family</option>
-          <option value="Single">Single</option>
+          <option value="Duluxe">Dulxe</option>
         </Select>
         <FormControl>
-          <FormLabel>Image</FormLabel>
-          <Input type="url" name='image_url'  onChange={handleChange} />
+          <FormLabel>Image of the room</FormLabel>
+          <Input type="text" name='image_url'  id='image_url'  onChange={handleChange} />
         </FormControl>
-        <FormControl as="fieldset">
-          <FormLabel as="legend">Room Type</FormLabel>
-          <RadioGroup defaultValue="AC">
-            <HStack spacing="54px">
-              <Radio value="AC" name='type_of_room' onChange={handleChange}>AC</Radio>
-              <Radio value="NonAC" name='type_of_room' onChange={handleChange}>Non AC</Radio>
-            </HStack>
-          </RadioGroup>
-        </FormControl>
-        <Select placeholder="Select Bed Type" name='bed_type'  onChange={handleChange}>
-          <option value="Single">Single</option>
-          <option value="Duplex">Duplex</option>
-          <option value="Suite">Suite</option>
+        <Select placeholder="Choose Room Type" id="type_of_room" name='type_of_room'  onChange={handleChange} >
+          <option value="AC">AC</option>
+          <option value="Non-AC">Non-AC</option>
+          {/* <option value="Suite">Suite</option> */}
         </Select>
         <FormControl>
-          <FormLabel>No Of Person</FormLabel>
-          <Input type="number" name='no_of_persons'  onChange={handleChange} />
+          <FormLabel>No Of Adults</FormLabel>
+          <Input type="number" id='no_of_persons' name='no_of_persons'  onChange={handleChange} />
         </FormControl>
         <FormControl>
-          <FormLabel>Capacity</FormLabel>
-          <Input type="text" name='capacity' onChange={handleChange} />
+          <FormLabel>Max Capacity</FormLabel>
+          <Input type="number" name='capacity' id='capacity'   onChange={handleChange}/>
         </FormControl>
         <FormControl>
-          <FormLabel>Cost</FormLabel>
-          <Input type="number" name='cost'  onChange={handleChange} />
+          <FormLabel>Cost per night</FormLabel>
+          <Input type="number" name='cost' id='cost'   onChange={handleChange}/>
         </FormControl>
-        <FormControl as="fieldset">
-          <FormLabel as="legend">Booked</FormLabel>
-          <RadioGroup defaultValue="false">
-            <HStack spacing="54px">
-              <Radio value="false" name='booked' onChange={handleChange}>False</Radio>
-              <Radio value="true" name='booked'  onChange={handleChange}>True</Radio>
-            </HStack>
-          </RadioGroup>
-        </FormControl>
+        <Select placeholder="Room Status" id="booked" name='booked'  onChange={handleChange} >
+          <option value="true">Booked</option>
+          <option value="false">Not Booked</option>
+        </Select>
         <Button 
         type="submit"
         colorScheme="pink"
         variant="solid"
         >
-          SUBMIT DETAILS
+          ENTER ROOM DETAILS
         </Button>
       </form>
     </>
