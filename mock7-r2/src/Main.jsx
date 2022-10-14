@@ -1,4 +1,4 @@
-// import axios from 'axios';
+import axios from 'axios';
 import { nanoid } from 'nanoid';
 import React,{useState,useEffect} from 'react';
 import { SingleCard } from './Components/SingleCard';
@@ -18,32 +18,38 @@ export const Main = () => {
             setAllData(res)
         })
     }
+
+    const getRegion=(val)=>{
+      console.log(val);
+      const regionapi=`https://restcountries.com/v3.1/region/${val}`;
+      fetch(regionapi)
+      .then(res=>res.json()).then(res=>{
+          
+          setAllData(res)
+      })
+ }
+
+
      const handleSort=(val)=>{
-          return setAllData([
-            ...alldata.sort((a,b)=>{
-                   if(val==='l2h'){
-                    return a.population-b.population;
-                   }
-                   else if(val==='h2l'){
-                    return b.population-a.population;
-                   }
-                   else{
-                    return alldata;
-                   }
+
+          if(val=='l2h'){
+            let sortData= alldata.sort((a,b)=>{
+              return a.population- b.population;
+              
             })
-          ])
+            console.log(sortData)
+            setAllData([...sortData])
+          }
+          else if(val=='h2l'){
+            let sortData= alldata.sort((a,b)=>{
+              return b.population- a.population;
+            })
+            console.log(sortData)
+            setAllData([...sortData])
+          }
      }
 
-     const handleFilter=(val)=>{
-          
-          let region=val.toLowerCase();
-          console.log(region)
-          if(region==='none'){
-            fetchData(api)
-          }
-          const regionapi=`https://restcountries.com/v3.1/region/${region}`
-          fetchData(regionapi)
-     }
+   
 
 
     useEffect(()=>{
@@ -57,13 +63,19 @@ export const Main = () => {
   return (
     <>
     <div className={styles.filterdiv}>
-     <select id="sort-pop" onClick={(e)=>handleSort(e.target.value)}>
+     <select id="sort-pop" 
+    //  onClick={(e)=>handleSort(e.target.value)}
+    onChange={(e)=>handleSort(e.target.value)}
+     >
         <option value="none">None</option>
         <option value="l2h">Ascending</option>
         <option value="h2l">Descending</option>
      </select>
      <div>
-        <select id="region" className="filter-reg" onClick={(e)=>handleFilter(e.target.value)}>
+      <input type="text" id='region' onChange={(e)=>getRegion(e.target.value)} />
+        {/* <select id="region" className="filter-reg" 
+        onChange={(e)=>handleFilter(e.target.value)}
+        >
         <option value="none">Filter by Region </option>
           <option value="Africa">Africa</option>
           <option value="Asia">Asia</option>
@@ -73,7 +85,7 @@ export const Main = () => {
           <option value="North America">North America</option>
           <option value="Oceania">Oceania</option>
           <option value="South America">South America</option>
-        </select>
+        </select> */}
      </div>
     </div>
     

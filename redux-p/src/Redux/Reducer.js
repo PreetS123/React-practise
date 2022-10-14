@@ -3,7 +3,7 @@ import * as types from './ActionTypes';
 
 const initState={
     shoes:[],
-    count:Number(localStorage.getItem('counter'))||0,
+    count:Number(JSON.parse(localStorage.getItem('counter'))),
     isLoading:false,
     isError:false,
 }
@@ -34,7 +34,8 @@ export const reducer=(state=initState,{type,payload})=>{
         }
         case types.UPDATE_COUNTER:{
             const value=state.count+payload;
-            localStorage.setItem('counter',value);
+            console.log(value,'update')
+            JSON.stringify(localStorage.setItem('counter',value));
             return {
                 ...state,
                 count:value,
@@ -44,7 +45,8 @@ export const reducer=(state=initState,{type,payload})=>{
         }
         case types.REDUCE_COUNTER:{
             const value=state.count-payload;
-            localStorage.setItem('counter',value);
+            console.log(value,'reduce')
+            JSON.stringify(localStorage.setItem('counter',value));
             return {
                 ...state,
                 count:value,

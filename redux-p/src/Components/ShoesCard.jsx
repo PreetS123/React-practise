@@ -10,14 +10,14 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 
-export const ShoesCard = ({id, image, name, category,cart_quantity ,handleCounter}) => {
+export const ShoesCard = ({id, image, name, category,cart_quantity ,handleCount}) => {
   
   // const [count,setCount]= useState(0);
-  const handleClick=(val)=>{
-     handleCounter(val)
-  }
+  // const handleClick=(val)=>{
+  //    handleCounter(val)
+  // }
   
-  console.log(cart_quantity)
+  // console.log(cart_quantity)
   return (
     <Center py={12}>
       <Box
@@ -74,8 +74,8 @@ export const ShoesCard = ({id, image, name, category,cart_quantity ,handleCounte
               {/* {count} */}
               {cart_quantity}
             </Text>
-            <Button onClick={()=>handleClick(id) }>+</Button>
-            <Button onClick={()=> handleClick(id)}>-</Button>
+            <Button onClick={()=>handleCount(1) }>+</Button>
+            <Button onClick={()=> handleCount(-1)}>-</Button>
           </Stack>
         </Stack>
       </Box>

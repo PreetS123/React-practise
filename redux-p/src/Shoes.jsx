@@ -19,9 +19,10 @@ export const Shoes = () => {
         .catch(e=>dispatch(getShoesFailure()))
     }
           
-    const handleCounter=()=>{
-        dispatch(updateCounter(1))
-        dispatch(reduceCounter(1))
+    const handleCounter=(val)=>{
+        console.log(val,'handlecounter')
+        dispatch(updateCounter(val))
+        dispatch(reduceCounter(val))
     }
     useEffect(()=>{
         getShoes();
@@ -33,7 +34,7 @@ export const Shoes = () => {
      <SimpleGrid m={'auto'} w='80%' h='fit-content' columns={{base:1,sm:2,md:3,lg:4}} spacing='20px'  >
         {
             dataofShoes?.map(el=>{
-                return <ShoesCard key={nanoid()} {...el} cart_quantity={cart_quantity} handleCounter={handleCounter} />
+                return <ShoesCard key={nanoid()} {...el} cart_quantity={cart_quantity} handleCount={handleCounter} />
             })
         }
      </SimpleGrid>
