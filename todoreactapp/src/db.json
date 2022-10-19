@@ -1,0 +1,19 @@
+{
+  "todoslist": [
+    {
+      "value": "Mango",
+      "completed": false,
+      "id": 1
+    },
+    {
+      "value": "Apple",
+      "completed": false,
+      "id": 2
+    },
+    {
+      "value": "Orange",
+      "completed": false,
+      "id": 3
+    }
+  ]
+}
