@@ -37,6 +37,14 @@ export const Todo = () => {
   },[data.length])
 //   console.log(data)
 
+   /////////////////////Delete code /////////////////////
+   const handleDelete=(id)=>{
+      axios.delete(api+`/${id}`)
+      .then(r=>fetchData())
+      .catch(e=>console.log(e))
+   }
+
+
 
   return (
     <>
@@ -48,9 +56,10 @@ export const Todo = () => {
         {
             data.length>0 && data?.map(item=>{
                 return (
-                    <div key={nanoid()}>
+                    <div key={nanoid()} className='databx'>
                        <h5>{item.id}</h5>
                        <h4>{item.title}</h4>
+                       <button onClick={()=>handleDelete(item.id)}>Delete</button>
                     </div>
                 )
             })

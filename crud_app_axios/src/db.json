@@ -1,10 +1,6 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "json-server"
-    },
-    {
       "title": "Mongo",
       "completed": false,
       "id": 2

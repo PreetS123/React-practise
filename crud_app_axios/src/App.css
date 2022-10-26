@@ -16,11 +16,19 @@
 }
 
 
-.maptodo {
-  width: fit-content;
+.mapdata {
   display: flex;
+  flex-direction: column;
   gap: 20px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  padding: 1%;
+}
+.databx{
+  display: flex;
+  /* flex-direction: column; */
+  gap: 20px;
+  align-items: center;
+  justify-content: space-around;
   padding: 1%;
 }
