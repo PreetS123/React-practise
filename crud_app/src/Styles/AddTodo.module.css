@@ -1,0 +1,21 @@
+.addtodo{
+    width: fit-content;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    /* margin:50px auto; */
+    padding: 2%;
+}
+
+.itemdiv{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.chkbx{
+ width: 10px;
+ height: 10px;
+}
