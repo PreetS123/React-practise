@@ -1,0 +1,23 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server"
+    },
+    {
+      "title": "Mongo",
+      "completed": false,
+      "id": 2
+    },
+    {
+      "title": "pencil",
+      "completed": false,
+      "id": 3
+    },
+    {
+      "title": "pencil",
+      "completed": false,
+      "id": 4
+    }
+  ]
+}

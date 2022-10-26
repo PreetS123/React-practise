@@ -14,3 +14,13 @@
   justify-content: center;
   padding: 2%;
 }
+
+
+.maptodo {
+  width: fit-content;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  padding: 1%;
+}
