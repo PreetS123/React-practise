@@ -1,0 +1,19 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "title": "mango",
+      "completed": false
+    },
+    {
+      "title": "Apple",
+      "completed": false,
+      "id": 3
+    },
+    {
+      "title": "PineApple",
+      "completed": false,
+      "id": 4
+    }
+  ]
+}
