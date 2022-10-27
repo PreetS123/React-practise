@@ -1,0 +1,15 @@
+ 
+.App {
+  width: 70%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 2%;
+  border: 5px solid rgb(101, 148, 9);
+  border-radius: 20px;
+  margin: 50px auto;
+}
+
