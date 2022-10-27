@@ -7,22 +7,22 @@ function App() {
   // let [btn3, setBtn3] = useState(false);
   // let [btn4, setBtn4] = useState(false);
 
-   const [btn, setBtn]= useState(false);
+  //  const [btn, setBtn]= useState(false);
 
-   const changeBtnVal=()=>{
-     if(btn===false){
-       setBtn(true);
+  //  const changeBtnVal=()=>{
+  //    if(btn===false){
+  //      setBtn(true);
       
-     }
-     else{
-      setBtn(false)
-     }
-    //  console.log(btn)
-   }
-   console.log(btn);
+  //    }
+  //    else{
+  //     setBtn(false)
+  //    }
+  //   //  console.log(btn)
+  //  }
+  //  console.log(btn);
   return (
     <div className="App">
-    
+    {/* /////////////////////////// toggling of four button with different useState ////////////////////// */}
       {/* <button disabled={btn1}  onClick={() => setBtn1(true)}>
         Button 1
       </button>
@@ -39,15 +39,21 @@ function App() {
         Button 4
       </button>
        */}
-           <p>{btn}</p>
+       
+           {/* <p>{btn}</p> */}
+
+           {/* /////////////////////////toggling of four button with single useState is not working/////////////////// */}
+
       {/* <button disabled={btn}  onClick={changeBtnVal}> Button 1</button>
       <button disabled={btn}  onClick={changeBtnVal}> Button 2</button>
       <button disabled={btn}  onClick={changeBtnVal}> Button 3</button>
       <button disabled={btn}  onClick={changeBtnVal}> Button 4</button> */}
      
-     {
+     {/* //////////////// Toggling of two button with single useState//////////////// */}
+     {/* {
       btn?<button onClick={changeBtnVal}>Button1</button>:<button onClick={changeBtnVal}>Button2</button>
-     }
+     } */}
+
     </div>
   );
 }
