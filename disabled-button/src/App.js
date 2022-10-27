@@ -4,94 +4,81 @@ import "./App.css";
 function App() {
 
   // writting code for handle four button with different useState///////
-  // let [btn1, setBtn1] = useState(false);
-  // let [btn2, setBtn2] = useState(false);
-  // let [btn3, setBtn3] = useState(false);
-  // let [btn4, setBtn4] = useState(false);
+  let [btn1, setBtn1] = useState(false);
+  let [btn2, setBtn2] = useState(false);
+  let [btn3, setBtn3] = useState(false);
+  let [btn4, setBtn4] = useState(false);
+  let [reset, setReset] = useState(false);
+  let [val, setVal] = useState('');
 
-  //   const handleBtn1=()=>{
-  //     if(btn1===false){
-  //          setBtn1(true)
-  //     }
-  //     else{
-  //       setBtn1(false)
-  //     }
-  //   }
-  //   const handleBtn2=()=>{
-  //     if(btn2===false){
-  //          setBtn2(true)
-  //     }
-  //     else{
-  //       setBtn2(false)
-  //     }
-  //   }
-  //   const handleBtn3=()=>{
-  //     if(btn3===false){
-  //          setBtn3(true)
-  //     }
-  //     else{
-  //       setBtn3(false)
-  //     }
-  //   }
-  //   const handleBtn4=()=>{
-  //     if(btn4===false){
-  //          setBtn4(true)
-  //     }
-  //     else{
-  //       setBtn4(false)
-  //     }
-  //   }
+    const handleClick=(value)=>{
+      if(value==='btn1'){
+        setBtn2(true);
+        setBtn3(true)
+        setBtn4(true)
+        setReset(true)
+        setVal(value);
+      }
+      else if(value==='btn2'){
+        setBtn1(true);
+        setBtn3(true)
+        setBtn4(true)
+        setReset(true)
+        setVal(value);
+      }
+      else if(value==='btn3'){
+        setBtn1(true);
+        setBtn2(true)
+        setBtn4(true)
+        setReset(true)
+        setVal(value);
+      }
+      else if(value==='btn4'){
+        setBtn1(true);
+        setBtn2(true)
+        setBtn3(true)
+        setReset(true)
+        setVal(value);
+      }
+      else{
+        setBtn1(false);
+        setBtn2(false);
+        setBtn4(false);
+        setBtn3(false);
+        setReset(false);
+        setVal('');
+      }
+    }
 
 
-  // working of four button with single useState
 
-   const [btn, setBtn]= useState(false);
-
-   const changeBtnVal=()=>{
-     if(btn===false){
-       setBtn(true);
-      
-     }
-     else{
-      setBtn(false)
-     }
-    //  console.log(btn)
-   }
-   console.log(btn);
   return (
     <div className="App">
+    
+    <h1>{val}</h1>
+
     {/* /////////////////////////// toggling of four button with different useState ////////////////////// */}
-      {/* <button disabled={btn1}  onClick={handleBtn1}>
+      <button disabled={btn1}  onClick={()=>handleClick('btn1')}>
         Button 1
       </button>
      
-      <button disabled={btn2} onClick={handleBtn2}>
+      <button disabled={btn2} onClick={()=>handleClick('btn2')}>
         Button 2
       </button>
       
-      <button disabled={btn3}  onClick={handleBtn3}>
+      <button disabled={btn3}  onClick={()=>handleClick('btn3')}>
         Button 3
       </button>
       
-      <button disabled={btn4} onClick={handleBtn4}>
+      <button disabled={btn4} onClick={()=>handleClick('btn4')}>
         Button 4
-      </button> */}
+      </button>
       
-
-           {/* <p>{btn}</p> */}
-
-           {/* /////////////////////////toggling of four button with single useState is not working/////////////////// */}
-
-    {btn?(<button  onClick={changeBtnVal}> Disable1</button>):(<button  onClick={changeBtnVal}>Enable1</button>)}  
-      <button   onClick={changeBtnVal}> Button 2</button>
-      <button   onClick={changeBtnVal}> Button 3</button>
-      <button   onClick={changeBtnVal}> Button 4</button>
-     
-     {/* //////////////// Toggling of two button with single useState//////////////// */}
-     {/* {
-      btn?<button onClick={changeBtnVal}>Button1</button>:<button onClick={changeBtnVal}>Button2</button>
-     } */}
-
+     {reset?
+      <button  onClick={()=>handleClick('reset')}>
+        Reset
+      </button>:null
+     }
     </div>
   );
 }
