@@ -1,0 +1,22 @@
+.maindiv{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    width: 80%;
+    height: fit-content;
+    padding: 2%;
+    background-color: aliceblue;
+}
+.avatar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.image{
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
