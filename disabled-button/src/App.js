@@ -57,7 +57,7 @@ function App() {
      }
     //  console.log(btn)
    }
-  //  console.log(btn);
+   console.log(btn);
   return (
     <div className="App">
     {/* /////////////////////////// toggling of four button with different useState ////////////////////// */}
@@ -82,10 +82,10 @@ function App() {
 
            {/* /////////////////////////toggling of four button with single useState is not working/////////////////// */}
 
-      <button enabled={btn===true}  onClick={changeBtnVal}> Button 1</button>
-      <button enabled={btn===true}  onClick={changeBtnVal}> Button 2</button>
-      <button enabled={btn===true}  onClick={changeBtnVal}> Button 3</button>
-      <button enabled={btn===true}  onClick={changeBtnVal}> Button 4</button>
+    {btn?(<button  onClick={changeBtnVal}> Disable1</button>):(<button  onClick={changeBtnVal}>Enable1</button>)}  
+      <button   onClick={changeBtnVal}> Button 2</button>
+      <button   onClick={changeBtnVal}> Button 3</button>
+      <button   onClick={changeBtnVal}> Button 4</button>
      
      {/* //////////////// Toggling of two button with single useState//////////////// */}
      {/* {
