@@ -1,0 +1,69 @@
+.oneCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: fit-content;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  /* padding: 1%; */
+}
+.image {
+  width: 90%;
+  height: 90%;
+  border-radius: 5px;
+}
+.itemdiv {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  line-height: 10px;
+  text-decoration: solid;
+  color: maroon;
+  font-weight: 900;
+  /* padding: 1%; */
+}
+
+.cartdiv{
+  width: 70%;
+  display: flex;
+  gap: 10px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.cartbtn{
+  height: 40px;
+  flex: 4;
+  background-color: green;
+  color: rgb(197, 252, 116);
+  border: none;
+  border-radius: 20px;
+  padding: 2%;
+}
+.cartbtn:hover{
+  background-color: rgb(212, 212, 212);
+  color: green;
+  font-weight: 900;
+}
+.itemcount{
+  display: flex;
+  gap: 5px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.itemcount button{
+  background-color:green;
+  color: rgb(210, 248, 152);
+  border: none;
+  height: 30px;
+  width: 30px;
+}
+
+.itemcount button:hover{
+  background-color: rgb(212, 211, 211);
+  color: green;
+  font-weight: 900;
+  font-size: 20px;
+}
