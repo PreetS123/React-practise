@@ -1,9 +1,25 @@
 import React from 'react';
-// import styled from 'styled-components';
 import styles from './ProductCard.module.css';
 
-export const ProductCard = ({image,brand,category,price,title}) => {
-  
+export const ProductCard = (items) => {
+ const {id,image,brand,category,price,title}=items.item
+//  console.log('item',items.item)
+  const postCart=(value)=>{
+
+      fetch("http://localhost:8080/cart",{
+        method:'POST',
+        body:JSON.stringify(value),
+        headers:{
+          'content-type':'application/json'
+        }
+      }).then(r=>r.json())
+      .then(r=>console.log(r))
+  }
+
+  const handleClick=(value)=>{
+    postCart(value)
+  }
+
   return (
     <div className={styles.oneCard}>
         <div >
@@ -16,12 +32,12 @@ export const ProductCard = ({image,brand,category,price,title}) => {
          <p>{title}</p>
          </div>
          <div className={styles.cartdiv}>
-          <button className={styles.cartbtn}>Add to Bag</button>
-          <div className={styles.itemcount} >
+          <button className={styles.cartbtn} onClick={()=>handleClick(items.item)} >Add to Bag</button>
+          {/* <div className={styles.itemcount} >
             <button>+</button>
             <h1></h1>
             <button>-</button>
-          </div>
+          </div> */}
          </div>
     </div>
   )

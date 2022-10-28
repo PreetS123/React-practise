@@ -1,0 +1,20 @@
+{
+  "cart": [
+    {
+      "id": 32,
+      "brand": "Fancy Mart",
+      "title": "Artificial Bamboo plants",
+      "image": "https://assets.myntassets.com/f_webp,dpr_1.0,q_60,w_210,c_limit,fl_progressive/assets/images/2334609/2017/12/12/11513083183045-na-881513083182960-1.jpg",
+      "category": "homedecor",
+      "price": 487
+    },
+    {
+      "id": 31,
+      "brand": "Tied Ribbons",
+      "title": "Set of 2 Artificial bunches",
+      "image": "https://assets.myntassets.com/f_webp,dpr_1.0,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2019/12/15/bbd18059-da43-425e-87e5-64f5321277f41576372604988-1.jpg",
+      "category": "homedecor",
+      "price": 597
+    }
+  ]
+}

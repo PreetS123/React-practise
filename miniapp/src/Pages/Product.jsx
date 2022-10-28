@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ProductCard } from "../Components/ProductCard";
 import { nanoid } from "nanoid";
 import styled from "styled-components";
+import { MIniNav } from "../Components/MIniNav";
 
 export const Product = () => {
   const [data, setData] = useState([]);
@@ -22,11 +23,11 @@ export const Product = () => {
 
   return (
   <>
-
+    <MIniNav />
   <ProductPageDivWrapper>
        {
          data?.map(item=>{
-            return <ProductCard key={nanoid()} {...item} />
+            return <ProductCard key={nanoid()} item={item} />
          })
        }
        </ProductPageDivWrapper>
