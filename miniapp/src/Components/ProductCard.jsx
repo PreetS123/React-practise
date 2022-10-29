@@ -1,11 +1,12 @@
 import React from 'react';
+import { useEffect } from 'react';
 import styles from './ProductCard.module.css';
 
 export const ProductCard = (items) => {
  const {id,image,brand,category,price,title}=items.item
 //  console.log('item',items.item)
   const postCart=(value)=>{
-
+       
       fetch("http://localhost:8080/cart",{
         method:'POST',
         body:JSON.stringify(value),
@@ -15,8 +16,22 @@ export const ProductCard = (items) => {
       }).then(r=>r.json())
       .then(r=>console.log(r))
   }
+   
+  const fetchCart=()=>{
+       
+    fetch("http://localhost:8080/cart",{
+      method:'GET'
+    }).then(r=>r.json())
+    .then(r=>console.log(r))
+    .catch(e=>console.log(e))
+}
+ 
+useEffect(()=>{
+  fetchCart()
+},[])
 
   const handleClick=(value)=>{
+    console.log(value.brand);
     postCart(value)
   }
 

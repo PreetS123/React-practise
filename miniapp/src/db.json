@@ -15,6 +15,14 @@
       "image": "https://assets.myntassets.com/f_webp,dpr_1.0,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2019/12/15/bbd18059-da43-425e-87e5-64f5321277f41576372604988-1.jpg",
       "category": "homedecor",
       "price": 597
+    },
+    {
+      "id": 15,
+      "brand": "Ziyaa",
+      "title": "A line kurta",
+      "image": "https://assets.myntassets.com/f_webp,dpr_1.0,q_60,w_210,c_limit,fl_progressive/assets/images/11056866/2019/12/9/67a0d919-cbca-4d89-a8f1-6a25c9e9305c1575891613300-Round-NeckWith--34th-Sleeve-Straight-Floral-print-Crepe-Kurt-1.jpg",
+      "category": "women",
+      "price": 499
     }
   ]
 }
