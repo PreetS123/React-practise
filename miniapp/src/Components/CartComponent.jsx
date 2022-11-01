@@ -4,7 +4,8 @@ import styles from "./Cart.module.css";
 
 export const CartComponent = () => {
   const [cartData, setCartData] = useState([]);
-
+  const [count,setCount]= useState(0)
+  
   const fetchCart = () => {
     fetch(`http://localhost:8080/cart`)
       .then((r) => r.json())
@@ -17,6 +18,18 @@ export const CartComponent = () => {
     fetchCart();
   }, []);
   console.log(cartData);
+
+  const handleInc=(item)=>{
+   item.qty=Number(item.qty)+1;
+   console.log(item.qty)
+  //  cartData.find(item=>item.id===id && item.qty+1)
+  }
+  const handleDec=(item)=>{
+    if(item.qty>1){
+    item.qty=Number(item.qty)-1;
+    console.log(item.qty)
+    }
+   }
 
   return (
     <div className={styles.cartPageDiv}>
@@ -34,9 +47,9 @@ export const CartComponent = () => {
               <p>{item.price}</p>
               {/* <p>{item.title}</p> */}
               <div className={styles.countbtn}>
-                <button>+</button>
-                <h4></h4>
-                <button>-</button>
+                <button onClick={()=>handleInc(item)}>+</button>
+                <h4>{item.qty}</h4>
+                <button onClick={()=>handleDec(item)}>-</button>
               </div>
             </div>
           );

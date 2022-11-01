@@ -1,7 +1,35 @@
 import React from 'react'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
 
 export const SignUp = () => {
+  const [signup,setSignup]= useState({});
+  const navigate= useNavigate();
+
+  let api= 'https://masai-api-mocker.herokuapp.com/auth/register';
+   
+   const SignupPost=()=>{
+       fetch(api,{
+        method:'POST',
+        body:JSON.stringify(signup),
+        headers:{
+          'content-type':'application/json'
+        }
+       })
+       alert('SignUp Done')
+        navigate('/login')
+   }
+
+  const handleSubmit=()=>{
+    
+     SignupPost();
+  }
+
+  const handleInput=(e)=>{
+   const {name,value}= e.target;
+   setSignup({...signup,[name]:value});
+  }
   return (
     <SignUpWrapper>
       <SignUpDiv>
@@ -9,14 +37,14 @@ export const SignUp = () => {
           <ImageWrapper src="https://images.meesho.com/images/marketing/1661417516766.webp" alt="MEESHO" />
         </SignUpImg>
         <h3>SignUp to view your profile</h3>
-        <form>
+        <form onSubmit={handleSubmit}>
             <FormWrapper>
               <FormDiv>
                 <InsideDiv>
                 <label htmlFor="username">User Name</label>
                 </InsideDiv>
                   <InsideDiv>
-                  <InputWrapper type="text" name='username'  />
+                  <InputWrapper type="text" name='username'  onChange={handleInput} />
                   </InsideDiv>
                
               </FormDiv>
@@ -25,7 +53,7 @@ export const SignUp = () => {
                 <label htmlFor="email">Email</label>
                 </InsideDiv>
                <InsideDiv>
-               <InputWrapper type="email" name='email'  />
+               <InputWrapper type="email" name='email'  onChange={handleInput} />
                </InsideDiv>
 
               </FormDiv>
@@ -34,7 +62,7 @@ export const SignUp = () => {
                 <label htmlFor="password">Password</label>
                 </InsideDiv>
                <InsideDiv>
-               <InputWrapper type="password" name='password'  />
+               <InputWrapper type="password" name='password' onChange={handleInput}  />
                </InsideDiv>
                
               </FormDiv>
