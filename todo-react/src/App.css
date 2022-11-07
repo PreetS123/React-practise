@@ -1,0 +1,38 @@
+.App{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.todoMain{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+     width: 90%;
+     height: fit-content;
+     border: 1px solid gray;
+     padding: 1%;
+}
+.addTodo{
+    display: flex;
+    gap: 20px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.addTodo input{
+    height: 30px;
+    padding: 1%;
+    border-color: maroon;
+}
+.addTodo button{
+    width: 100px;
+    height: 30px;
+    padding: 1%;
+    color: maroon;
+}
+
+
