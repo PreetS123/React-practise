@@ -53,6 +53,15 @@ export const Todo = () => {
         .then(d=>fetchData(d))
     }
 
+    /////// edit data ///////////////
+     const handleEdit=(id)=>{
+        console.log(id);
+        // fetch(`http://localhost:8080/todo/${id}`,{
+        //   method:'PATCH'
+        // }).then(r=>r.json())
+        // .then(d=>fetchData(d))
+     }
+
   return (
     <div className='todoMain'>
             {/* add todo section  */}
@@ -70,7 +79,7 @@ export const Todo = () => {
                         <img src={item.image} alt={item.item} />
                         <p>{item.item}</p>
                         <button onClick={()=>handleDelete(item.id)}>DELETE</button>
-                        <button>EDIT</button>
+                        <button onClick={()=>handleEdit(item.id)}>EDIT</button>
                    </div>
                 })
               }

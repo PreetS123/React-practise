@@ -11,6 +11,18 @@
       "image": "https://tse2.mm.bing.net/th?id=OIP.R0ResAz3EnSCx9MQzA_-EgHaHI&pid=Api&P=0",
       "completed": false,
       "id": 2
+    },
+    {
+      "item": "Peach",
+      "image": "https://tse4.mm.bing.net/th?id=OIP.e0hv-UAC8fe_XA-f9u8h9wHaEl&pid=Api&P=0",
+      "completed": false,
+      "id": 3
+    },
+    {
+      "item": "Pears",
+      "image": "https://www.agmrc.org/media/cms/pears_581123917B436.jpg",
+      "completed": false,
+      "id": 4
     }
   ]
 }
