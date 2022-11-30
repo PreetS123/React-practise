@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+  width: 100%;
+
+}
+.palindrome{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 2%;
+  justify-content: space-evenly;
+}
