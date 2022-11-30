@@ -9,4 +9,11 @@
   gap: 20px;
   padding: 2%;
   justify-content: space-evenly;
+  color: maroon;
+}
+.palindrome h6:hover{
+   color: blueviolet;
+   font-weight: 900;
+   font-size: 14px;
+   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
