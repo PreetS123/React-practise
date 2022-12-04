@@ -2,42 +2,37 @@ import { nanoid } from 'nanoid';
 import React,{useState,useEffect} from 'react'
 
 export const Todo = () => {
-  const [todoVal,setTodoVal]= useState([]);
+  const [todoData,setTodoData]= useState([]);
   const [inpVal,setInpVal]= useState({
     item:"",
     image:"",
-    completed:false
+    completed:false,
   })
 
-   const handleInp=(e)=>{
-    // console.log(e.target.value)
-     setInpVal({...inpVal,[e.target.name]:e.target.value})
-   }
-
-
+  const handleInpVal=(e)=>{
+    setInpVal({...inpVal,[e.target.name]:e.target.value})
+  }
   ///////////  posting Data //////////////
-    const handleAddTodo=async()=>{
-         await fetch(`http://localhost:8080/todo`,{
-          method:'POST',
-          body:JSON.stringify(inpVal),
-          headers:{
-            'content-type':'application/json'
-          }
-         }).then(r=>FetchData(r))
-    }
+   const handleAdd=()=>{
+     fetch(`http://localhost:8080/todo`,{
+      method:'POST',
+      body:JSON.stringify(inpVal),
+      headers:{
+        'content-type':'application/json'
+      }
+     }).then(r=>fetchData(r))
+    
+   }
     
    //////// fetching data//////////
-      const FetchData=async()=>{
-           await fetch(`http://localhost:8080/todo`,{
-            method:'GET'
-           }).then(r=>r.json())
-           .then(r=>{
-            console.log(r)
-            setTodoVal(r)
-           })
-           .catch(er=>{
-            console.log('er in fetching',er)
-           })
+      const fetchData=()=>{
+        fetch(`http://localhost:8080/todo`,{
+          method:'GET'
+        }).then(r=>r.json())
+        .then(d=>{
+          console.log(d);
+          setTodoData(d);
+        }).catch(er=>console.log('er in fetch',er))
       }
     
 
@@ -46,42 +41,37 @@ export const Todo = () => {
         fetch(`http://localhost:8080/todo/${id}`,{
           method:'DELETE',
           headers:{
-            'content-type':'application/json'
+            "content-type":"application/json"
           }
-        }).then(r=>r.json())
-        .then(r=>FetchData(r))
-        .catch(e=>console.log(e))
+        }).then(r=>fetchData(r))
       }
 
     /////// edit data ///////////////
     
 
-    useEffect(()=>{
-      FetchData();
-    },[])
+ useEffect(()=>{
+  fetchData();
+ },[])
 
   return (
     <div className='todoMain'>
             {/* add todo section  */}
             <div className='addTodo'>
-                  <input type="text" name='item'  onChange={handleInp} autoComplete='off' />
-                  <input type="url"  name='image' onChange={handleInp} autoComplete='off' />
-                  <button onClick={handleAddTodo} >ADD</button>
+                      <input type="text" name='item' onChange={handleInpVal}  autoComplete='off' />
+                      <input type="text" name='image' onChange={handleInpVal}  autoComplete='off' />
+                      <button  onClick={handleAdd}>ADD</button>
             </div>
             
             <div className='todoMapping'>
              <div className='tododatamap'>
              {
-                todoVal?.map(item=>{
-                  return(
-                    <div key={nanoid()} className='todoitem'>
-                      <p>{item.item}</p>
-                      <img src={item.image} alt={item.item} />
-                      
-                      <button onClick={()=>handleDelete(item.id)}>DELETE</button>
-                    </div>
-                  )
-                })
+               todoData?.map(item=>(
+                <div key={nanoid()} className='todoitem'>
+                  <p>{item.item}</p>
+                  <img src={item.image} alt={item.item} />
+                  <button onClick={()=>handleDelete(item.id)}>DELETE</button>
+                </div>
+               ))
              }
              </div>
             </div>
