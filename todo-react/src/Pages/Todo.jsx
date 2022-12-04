@@ -23,7 +23,7 @@ export const Todo = () => {
           headers:{
             'content-type':'application/json'
           }
-         })
+         }).then(r=>FetchData(r))
     }
     
    //////// fetching data//////////
@@ -42,7 +42,16 @@ export const Todo = () => {
     
 
     /////// deleting data ///////////////
-    
+      const handleDelete=(id)=>{
+        fetch(`http://localhost:8080/todo/${id}`,{
+          method:'DELETE',
+          headers:{
+            'content-type':'application/json'
+          }
+        }).then(r=>r.json())
+        .then(r=>FetchData(r))
+        .catch(e=>console.log(e))
+      }
 
     /////// edit data ///////////////
     
@@ -69,7 +78,7 @@ export const Todo = () => {
                       <p>{item.item}</p>
                       <img src={item.image} alt={item.item} />
                       
-                      <button>DELETE</button>
+                      <button onClick={()=>handleDelete(item.id)}>DELETE</button>
                     </div>
                   )
                 })
