@@ -1,0 +1,64 @@
+{
+  "crudapp": [
+    {
+      "id": 1,
+      "title": "Wings of fire",
+      "name": "Dr.APJ Abdul Kalam",
+      "year":1943
+    },
+    {
+      "id": 2,
+      "title": "Mangalsutra",
+      "name": "Prem Chandra",
+      "year":1234
+    },
+    {
+      "id": 3,
+      "title": "The story of my life",
+      "name": "Helen Keller",
+      "year":1718
+    },
+    {
+      "id": 4,
+      "title": "Story of Liliputian",
+      "name": "William",
+      "year":1345
+    },
+    {
+      "id": 5,
+      "title": "The two different path",
+      "name": "Shakespere",
+      "year":1100
+    },
+    {
+      "id": 6,
+      "title": "THE WHITE TIGER ",
+      "name": "ARAVIND ADIGA",
+      "year":2000
+    },
+    {
+      "id": 7,
+      "title": "Alochona",
+      "name": "Rabindranath Tagore",
+      "year":1885
+    },
+    {
+      "id": 8,
+      "title": "MIDNIGHT CHILDREN",
+      "name": "SALMAN RUSHDIE",
+      "year":1945
+    },
+    {
+      "id": 9,
+      "title": "THE GOD OF SMALL THINGS",
+      "name": "ARUNDHATI ROY",
+      "year":1996
+    },
+    {
+      "id": 10,
+      "title": "Bhikarini",
+      "name": "Rabindranath Tagore",
+      "year":1887
+    }
+  ]
+}

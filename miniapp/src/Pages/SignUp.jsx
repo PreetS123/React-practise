@@ -21,8 +21,8 @@ export const SignUp = () => {
         navigate('/login')
    }
 
-  const handleSubmit=()=>{
-    
+  const handleSubmit=(e)=>{
+    e.preventDefault();
      SignupPost();
   }
 

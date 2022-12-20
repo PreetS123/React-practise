@@ -1,9 +1,33 @@
 import React from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Login = () => {
+ const [flag,setFlag]= useState(false);
+ const [loginData,setLoginData]= useState({});
+ const navigate= useNavigate();
+ 
+  // let api='https://masai-api-mocker.herokuapp.com/users';
+  // `https://login-backend1.herokuapp.com/users`
+  
+  const handleInput=(e)=>{
+     const {name,value}= e.target;
+     setLoginData({...loginData,[name]:value});
+  }
+  const handleLogin=async()=>{
+      let data= await fetch(`https://login-backend1.herokuapp.com/users`).then(r=>r.json());
+      data.map((item)=>{
+        if(item.email===loginData.email && item.password===loginData.password){
+          alert('login successfull')
+          navigate('/');
+        }
+        else{
+          setFlag(!flag);
+        }
+      })
+  }
 
-  let api='https://masai-api-mocker.herokuapp.com/auth/login';
   return (
     <LoginDivWrapper>
       <LoginDiv>
@@ -19,7 +43,7 @@ export const Login = () => {
                 <label htmlFor="email">Email</label>
                 </InsideDiv>
                <InsideDiv>
-               <InputWrapper type="email" name='email'  />
+               <InputWrapper type="email" name='email' onChange={handleInput}  />
                </InsideDiv>
               </FormDiv>
               <FormDiv>
@@ -27,12 +51,12 @@ export const Login = () => {
                 <label htmlFor="password">Password</label>
                 </InsideDiv>
                <InsideDiv>
-               <InputWrapper type="password" name='password'  />
+               <InputWrapper type="password" name='password' onChange={handleInput}  />
                </InsideDiv>
                
               </FormDiv>
               <FormButtonDiv>
-                <ButtonDiv type='submit' >LOGIN</ButtonDiv>
+                <ButtonDiv onClick={handleLogin} >LOGIN</ButtonDiv>
               </FormButtonDiv>
             </FormWrapper>
         </form>

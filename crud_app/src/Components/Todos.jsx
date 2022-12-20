@@ -5,7 +5,7 @@ import styles from '../Styles/AddTodo.module.css';
 
 export const Todos = () => {
   const [data,setData]= useState([]);
-  // const [inpdata,setInpData]=useState('');
+  const [chk,setChk]=useState(false);
   const [ querry, setQuerry ]= useState("");
   
     ////////posting data in JSON-SERVER////////////
@@ -21,7 +21,7 @@ export const Todos = () => {
   const addMyTodo = (value) => {
     let obj={
       item:value,
-      completed:false
+      completed:chk
     }
      fetch(`http://localhost:8080/posts`, {
       method: "post",
@@ -56,6 +56,10 @@ export const Todos = () => {
     .then(d=>fetchData(d))
   }
 
+  const handleChkbx=()=>{
+     setChk(true)
+  }
+
   return (
     <>
      {/* ///////////////////add todo data////////////////// */}
@@ -79,7 +83,7 @@ export const Todos = () => {
               return(
                 
                 <div className={styles.itemdiv} key={nanoid()}>
-                  <input type="checkbox" className={styles.chkbx} />
+                  <input type="checkbox" onChange={handleChkbx} className={styles.chkbx} />
                   <h5>{item.id}.</h5>
                   <h4>{item.item}</h4>
                   <button onClick={()=>handleDelete(item.id)}>Delete</button>
