@@ -1,39 +1,46 @@
 {
-    "userdata":[
-        {
-            "name":"Preeti",
-            "address":"vidya nagar",
-            "email":"pre@gmail.com",
-            "contact":"123456789",
-            "id":1
-        },
-        {
-            "name":"Ritu",
-            "address":"harmu",
-            "email":"ritu@gmail.com",
-            "contact":"987654321",
-            "id":2
-        },
-        {
-            "name":"Kanchan",
-            "address":"vidya nagar",
-            "email":"kanchan@gmail.com",
-            "contact":"909090909",
-            "id":3
-        },
-        {
-            "name":"Anjali",
-            "address":"vidya nagar",
-            "email":"anji@gmail.com",
-            "contact":"808080808",
-            "id":4
-        },
-        {
-            "name":"Arshi",
-            "address":"lohardaga",
-            "email":"arshi@gmil.com",
-            "contact":"606060606",
-            "id":5
-        }
-    ]
+  "userdata": [
+    {
+      "name": "Kanchan",
+      "address": "vidya nagar",
+      "email": "kanchan@gmail.com",
+      "contact": "9876004321",
+      "id": 1
+    },
+    {
+      "name": "Ritu",
+      "address": "harmu",
+      "email": "ritu@gmail.com",
+      "contact": "987654321",
+      "id": 2
+    },
+    {
+      "name": "Chhavi",
+      "address": "up",
+      "email": "chhavi@gmail.com",
+      "contact": "800080808",
+      "id": 3
+    },
+    {
+      "name": "Anjali",
+      "address": "vidya nagar",
+      "email": "anji@gmail.com",
+      "contact": "808080808",
+      "id": 4
+    },
+    {
+      "name": "Arshi",
+      "address": "lohardaga",
+      "email": "arshi@gmil.com",
+      "contact": "606060606",
+      "id": 5
+    },
+    {
+      "name": "pali",
+      "email": "pali@gmail.com",
+      "contact": "12301230123",
+      "address": "vidya nagar",
+      "id": 6
+    }
+  ]
 }

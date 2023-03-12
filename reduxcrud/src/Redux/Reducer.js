@@ -25,6 +25,7 @@ export const usersReducers=(state=initState,{type,payload})=>{
              }
 
              case types.DELETE_USER_SUCCESS:
+             case types.ADD_USER_SUCCESS:
                 return {
                     ...state,
                     isLoading:false,

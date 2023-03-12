@@ -24,25 +24,20 @@ export const loadUserData=()=>(dispatch)=>{
    })
 }
 
-const addUserRequest=()=>({
-    type:types.ADD_USER_REQUEST,
-})
-const addUserSuccess=(payload)=>({
-    type:types.ADD_USER_REQUEST,
-    payload
-})
-const addUserFailure=(payload)=>({
-    type:types.ADD_USER_REQUEST,
-    payload
+
+const addUserSuccess=()=>({
+    type:types.ADD_USER_REQUEST
+
 })
 
+
 export const addUserData=(payload)=>dispatch=>{
-    dispatch(addUserRequest());
-    axios.post(``,payload).then(res=>{
+    axios.post(`${process.env.REACT_APP_API}`,payload).then(res=>{
         console.log('addUserData',res);
-        dispatch(addUserSuccess(res));
-    }).then(er=>{
-        dispatch(addUserFailure(er));
+        dispatch(addUserSuccess());
+        dispatch(loadUserData());
+    }).catch(er=>{
+        console.log(er);
     })
 }
 
@@ -53,7 +48,7 @@ const deleteUserSuccess=()=>({
  export const deleteUserData=(id)=>dispatch=>{
     axios.delete(`${process.env.REACT_APP_API}/${id}`).then(res=>{
         dispatch(deleteUserSuccess());
-        loadUserData();
+        dispatch(loadUserData());
     }).catch(er=>console.log('deleteUserData',er))
  }
 
