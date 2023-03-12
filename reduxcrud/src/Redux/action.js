@@ -46,10 +46,16 @@ export const addUserData=(payload)=>dispatch=>{
     })
 }
 
-const deleteUser=(payload)=>({
+const deleteUserSuccess=()=>({
     type:types.DELETE_USER_SUCCESS,
-    payload
 })
+
+ export const deleteUserData=(id)=>dispatch=>{
+    axios.delete(`${process.env.REACT_APP_API}/${id}`).then(res=>{
+        dispatch(deleteUserSuccess());
+        loadUserData();
+    }).catch(er=>console.log('deleteUserData',er))
+ }
 
 const editUser=(payload)=>({
     type:types.EDIT_USER_SUCCESS,

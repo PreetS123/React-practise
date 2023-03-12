@@ -15,6 +15,7 @@ export const usersReducers=(state=initState,{type,payload})=>{
              ...state,
              users:payload,
              isLoading:false,
+             isError:''
          }
          case types.GET_USER_FAILURE:
             return  {
@@ -22,6 +23,13 @@ export const usersReducers=(state=initState,{type,payload})=>{
                  isError:payload,
                  isLoading:false,
              }
+
+             case types.DELETE_USER_SUCCESS:
+                return {
+                    ...state,
+                    isLoading:false,
+                    isError:'',
+                }
 
        default: return state
     }
