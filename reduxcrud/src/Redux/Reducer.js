@@ -31,7 +31,13 @@ export const usersReducers=(state=initState,{type,payload})=>{
                     isLoading:false,
                     isError:'',
                 }
-
+                case types.GET_SINGLE_USER:
+                    return {
+                        ...state,
+                        user:payload,
+                        isLoading:false,
+                        isError:'',
+                    }
        default: return state
     }
 }

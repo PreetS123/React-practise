@@ -41,6 +41,20 @@
       "contact": "12301230123",
       "address": "vidya nagar",
       "id": 6
+    },
+    {
+      "name": "anu",
+      "email": "anu@gmail.com",
+      "contact": "303030303",
+      "address": "jaipur",
+      "id": 7
+    },
+    {
+      "name": "Chhavi",
+      "email": "chhavi@gmail.com",
+      "contact": "80008080",
+      "address": "u.p",
+      "id": 8
     }
   ]
 }

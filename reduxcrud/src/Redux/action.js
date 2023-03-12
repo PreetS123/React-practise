@@ -52,7 +52,13 @@ const deleteUserSuccess=()=>({
     }).catch(er=>console.log('deleteUserData',er))
  }
 
-const editUser=(payload)=>({
-    type:types.EDIT_USER_SUCCESS,
+const singleUser=(payload)=>({
+    type:types.GET_SINGLE_USER,
     payload,
 })
+
+export const getSingleUserData=(id)=>(dispatch)=>{
+      axios.get(`${process.env.REACT_APP_API}/${id}`).then(res=>{
+        dispatch(singleUser(res.data))
+      }).catch(er=>console.log(er))
+}

@@ -22,7 +22,7 @@ import {
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { useDispatch, useSelector } from "react-redux";
-import { addUserData, deleteUserData, loadUserData } from "../Redux/action";
+import { addUserData, deleteUserData, getSingleUserData, loadUserData } from "../Redux/action";
 
 const modaldeletestyle = {
   position: "absolute",
@@ -60,8 +60,9 @@ const useStyle = makeStyles({
 
 export const Home = () => {
   const classes = useStyle();
-  const { users } = useSelector((state) => state.data);
+  const { users,user } = useSelector((state) => state.data);
   const [dltid, setdltid] = useState("");
+  const [updateid,setUpdateid]= useState("");
   const [inpuser,setInpUser]= useState({
     name: "",
     email: "",
@@ -88,6 +89,7 @@ export const Home = () => {
       dispatch(deleteUserData(dltid));
     }
     handleClose();
+    setdltid('');
   };
 
   const handleInpChange=(e)=>{
@@ -103,11 +105,21 @@ export const Home = () => {
     handleAddClose();
     setErrori('')
    }
-   
    }
+
+   const handleUpdate=(id)=>{
+    handleAddOpen();
+    setUpdateid(id);
+   }
+   
   useEffect(() => {
     dispatch(loadUserData());
-  }, []);
+   
+  }, [dispatch]);
+   useEffect(()=>{
+    dispatch(getSingleUserData(updateid));
+   },[dispatch,updateid])
+  console.log('singleuser',user)
   return (
     <>
       <Card
@@ -182,11 +194,13 @@ export const Home = () => {
                         align="center"
                         sx={{ border: "1px solid lightgray" }}
                       >
-                        <IconButton variant="container" color="primary">
+                        <IconButton  
+                        color="primary"
+                        onClick={()=>handleUpdate(row.id)}
+                        >
                           <EditIcon />
                         </IconButton>
                         <IconButton
-                          variant="contained"
                           color="secondary"
                           onClick={() => handleDelete(row.id)}
                         >
@@ -209,14 +223,21 @@ export const Home = () => {
         aria-describedby="keep-mounted-modal-description"
       >
         <Box sx={modaldeletestyle}>
-          <Typography
+         {updateid==''?( <Typography
             textAlign={"center"}
             id="keep-mounted-modal-title"
             variant="h6"
             component="h2"
           >
             User Form
-          </Typography>
+          </Typography>):( <Typography
+            textAlign={"center"}
+            id="keep-mounted-modal-title"
+            variant="h6"
+            component="h2"
+          >
+            Edit Form
+          </Typography>)}
           {errori && <h5 style={{color:'red'}}>{errori}</h5>}
           <form  autoComplete="off" onSubmit={handleAddUser}>
           <Stack spacing={2} p={2} >
@@ -226,7 +247,7 @@ export const Home = () => {
                 variant="outlined"
                 fullWidth
                 type='text'
-                value={name}
+                value={name||user.name }
                 name={'name'}
                 onChange={handleInpChange}
               />
@@ -237,7 +258,7 @@ export const Home = () => {
                 variant="outlined"
                 fullWidth
                 type='email'
-                value={email}
+                value={email||user.email}
                 name={'email'}
                 onChange={handleInpChange}
               />
@@ -248,7 +269,7 @@ export const Home = () => {
                 variant="outlined"
                 fullWidth
                 type='text'
-                value={contact}
+                value={contact||user.contact}
                 name={'contact'}
                 onChange={handleInpChange}
               />
@@ -259,7 +280,7 @@ export const Home = () => {
                 variant="outlined"
                 fullWidth
                 type='text'
-                value={address}
+                value={address||user.address}
                 name={'address'}
                 onChange={handleInpChange}
               />
@@ -286,7 +307,7 @@ export const Home = () => {
             >
               Cancel
             </Button>
-            <Button
+            {updateid==''?(<Button
               sx={{
                 backgroundColor: "green",
                 color: "white",
@@ -296,7 +317,18 @@ export const Home = () => {
               
             >
               Add User
+            </Button>):(
+            <Button
+              sx={{
+                backgroundColor: "green",
+                color: "white",
+                ":hover": { backgroundColor: "green" },
+              }}
+                type='submit'             
+            >
+              Edit User
             </Button>
+            )}
           </Box>
           </form>
         </Box>
